@@ -1,0 +1,4 @@
+/run/initialize
+/run/beamOn 20000
+
+exit

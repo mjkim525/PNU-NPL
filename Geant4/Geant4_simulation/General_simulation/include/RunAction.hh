@@ -1,16 +1,13 @@
 #ifndef RunAction_h
 #define RunAction_h 1
 
-#define max_tracks 1000
-#define max_steps 1000
+#define max_tracks 1000000
+#define max_steps 1000000
 
 #include "G4UserRunAction.hh"
 #include "G4Accumulable.hh"
 #include "G4ThreeVector.hh"
 #include "globals.hh"
-
-#define max_tracks 1000
-#define max_steps 1000
 
 #include "TFile.h"
 #include "TTree.h"
