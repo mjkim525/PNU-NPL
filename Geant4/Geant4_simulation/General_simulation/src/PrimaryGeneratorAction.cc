@@ -33,18 +33,39 @@ PrimaryGeneratorAction::~PrimaryGeneratorAction()
 
 void PrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent)
 {
-	for(G4int n=0; n<PC -> GetParInt("NperEvent"); n++)
+	if (PC->GetParBool("Square_beam"))
 	{
-		G4double x0 = 
-			(PC->GetParDouble("Beam_x0")+PC->GetParDouble("Beam_dx")*(G4UniformRand()-0.5)) * mm;
-		G4double y0 = 
-			(PC->GetParDouble("Beam_y0")+PC->GetParDouble("Beam_dy")*(G4UniformRand()-0.5)) * mm;
-		G4double z0 = 
-			(PC->GetParDouble("Beam_z0")+PC->GetParDouble("Beam_dz")*(G4UniformRand()-0.5)) * mm;
+	   for(G4int n=0; n<PC -> GetParInt("NperEvent"); n++)
+		{
+			G4double x0 = 
+				(PC->GetParDouble("Beam_x0")+PC->GetParDouble("Beam_dx")*(G4UniformRand()-0.5)) * mm;
+			G4double y0 = 
+				(PC->GetParDouble("Beam_y0")+PC->GetParDouble("Beam_dy")*(G4UniformRand()-0.5)) * mm;
+			G4double z0 = 
+				(PC->GetParDouble("Beam_z0")+PC->GetParDouble("Beam_dz")*(G4UniformRand()-0.5)) * mm;
 
-		fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
+			fParticleGun->SetParticlePosition(G4ThreeVector(x0,y0,z0));
 
-		fParticleGun->GeneratePrimaryVertex(anEvent);
+			fParticleGun->GeneratePrimaryVertex(anEvent);
+		}
 	}
-//	G4cout << "yjkim: " << fParticleGun -> GetParticleDefinition() -> GetParticleName() << G4endl;
+
+	if (PC->GetParBool("Radial_beam"))
+	{
+
+   	for(G4int n=0; n<PC -> GetParInt("NperEvent"); n++)
+		{
+			G4double z0 = (PC->GetParDouble("Beam_z0") + PC->GetParDouble("Beam_dz")*(G4UniformRand()-0.5)) * mm;
+
+			// Add beam radius
+			G4double beamRadius = PC->GetParDouble("Beam_radius")*((G4UniformRand())) * mm;
+			G4double phi = 2. * CLHEP::pi *(G4UniformRand());
+			G4double x0 = beamRadius * cos(phi);
+			G4double y0 = beamRadius * sin(phi);
+
+			fParticleGun->SetParticlePosition(G4ThreeVector(x0, y0, z0));
+			fParticleGun->GeneratePrimaryVertex(anEvent);
+		}
+	}
+
 }

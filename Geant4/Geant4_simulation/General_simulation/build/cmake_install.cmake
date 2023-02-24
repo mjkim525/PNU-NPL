@@ -1,4 +1,4 @@
-# Install script for directory: /home/mjkim/Geant4/kebi-1_KOMAC/NPL_Dir/PNU-NPL/Geant4/Geant4_simulation/General_simulation
+# Install script for directory: /home/mjkim/Geant4/230221_KOMAC/NPL_Dir/PNU-NPL/Geant4/Geant4_simulation/General_simulation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/mjkim/Geant4/kebi-1_KOMAC/NPL_Dir/PNU-NPL/Geant4/Geant4_simulation/General_simulation/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mjkim/Geant4/230221_KOMAC/NPL_Dir/PNU-NPL/Geant4/Geant4_simulation/General_simulation/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
