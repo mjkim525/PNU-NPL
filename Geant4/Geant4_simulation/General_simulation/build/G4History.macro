@@ -43,5 +43,5 @@
 /vis/viewer/refresh
 /vis/viewer/set/viewpointThetaPhi 130 160 deg
 /vis/viewer/refresh
-/run/beamOn 5
+/run/beamOn 100
 /vis/scene/notifyHandlers scene-0
